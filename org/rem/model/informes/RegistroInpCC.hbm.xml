@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model.informes">
+	<class name="RegistroInpCC" table="RegistroInpCC" lazy="false">
+
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="centroCosto" column="centroCosto" type="long" not-null="true" />
+		<property name="rutTrabajador" column="rutTrabajador" type="string" not-null="true" />
+		<property name="paterno" column="paterno" type="string" not-null="true"  />
+		<property name="materno" column="materno" type="string" not-null="true"  />		
+		<property name="nombres" column="nombres" type="string" not-null="true"  />		
+		<property name="dias" column="dias" type="double" not-null="true"  />
+		<property name="imponible" column="imponible" type="long" not-null="true"  />
+		<property name="pension" column="pension" type="long" not-null="true"  />
+		<property name="fonasa" column="fonasa" type="long" not-null="true"  />
+		<property name="accidenteTrabajo" column="accidenteTrabajo" type="long" not-null="true"  />
+		<property name="tramo" column="tramo" type="string" not-null="true"  />		
+		<property name="numeroCargaSimple" column="numeroCargaSimple" type="long" not-null="true"  />
+		<property name="montoCargaSimple" column="montoCargaSimple" type="long" not-null="true"  />
+		<property name="numeroCargaInvalida" column="numeroCargaInvalida" type="long" not-null="true"  />
+		<property name="montoCargaInvalida" column="montoCargaInvalida" type="long" not-null="true"  />		
+		<property name="numeroCargaMaternal" column="numeroCargaMaternal" type="long" not-null="true"  />
+		<property name="montoCargaMaternal" column="montoCargaMaternal" type="long" not-null="true"  />
+	</class>
+</hibernate-mapping>

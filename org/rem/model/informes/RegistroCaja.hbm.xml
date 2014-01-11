@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model.informes">
+	<class name="RegistroCaja" table="RegistroCaja" lazy="false">
+
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="rutTrabajador" column="rutTrabajador" type="string" not-null="true" />
+		<property name="paterno" column="paterno" type="string" not-null="true"  />
+		<property name="materno" column="materno" type="string" not-null="true"  />		
+		<property name="nombres" column="nombres" type="string" not-null="true"  />		
+		<property name="imponibleNoAfiliado" column="imponibleNoAfiliado" type="long" not-null="true"  />
+		<property name="cotizacionNoAfiliado" column="cotizacionNoAfiliado" type="long" not-null="true" />
+		<property name="imponibleAfiliado" column="imponibleAfiliado" type="long" not-null="true"  />
+		<property name="dias" column="dias" type="double" not-null="true"  />		
+		<property name="numeroCargaSimple" column="numeroCargaSimple" type="long" not-null="true"  />
+		<property name="numeroCargaInvalida" column="numeroCargaInvalida" type="long" not-null="true"  />
+		<property name="numeroCargaMaternal" column="numeroCargaMaternal" type="long" not-null="true"  />
+		<property name="asignacionFamiliar" column="asignacionFamiliar" type="long" not-null="true"  />
+		<property name="tramoAsignacionFamiliar" column="tramoAsignacionFamiliar" type="string" not-null="true" />
+		
+	</class>
+</hibernate-mapping>

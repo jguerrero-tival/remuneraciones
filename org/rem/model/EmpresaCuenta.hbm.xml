@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="EmpresaCuenta" table="EmpresaCuenta" lazy="false">
+
+		<id name="idEmpresaCuenta" column="idEmpresaCuenta">
+			<generator class="native" />
+		</id>
+		<property name="cerrada" column="cerrada" type="true_false" not-null="true" />
+		<property name="gratificacion" column="gratificacion" type="string" not-null="true" />
+		<many-to-one name="caja" column="idCaja" class="Caja" />
+		<many-to-one name="mutual" column="idMutual" class="Mutual"	/>
+		<property name="mutualCotizacionAdicional" column="mutualCotizacionAdicional" type="double" not-null="true" />
+		<many-to-one name="empresa" column="idEmpresa" class="Empresa" not-null="true" />
+		<many-to-one name="mes" column="idMes" class="Mes" not-null="true" />
+		
+		<set name="centroCostos" inverse="true" cascade="all">
+			<key column="idEmpresaCuenta" />
+			<one-to-many class="CentroCosto" />
+		</set>
+
+		<set name="trabajadorCuentas" inverse="true" cascade="all">
+			<key column="idEmpresaCuenta" />
+			<one-to-many class="TrabajadorCuenta" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

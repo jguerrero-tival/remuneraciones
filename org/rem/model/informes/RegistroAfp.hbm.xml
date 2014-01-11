@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model.informes">
+	<class name="RegistroAfp" table="RegistroAfp" lazy="false">
+
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="nombreAfp" column="nombreAfp" type="string" not-null="true" />
+		<property name="rutTrabajador" column="rutTrabajador" type="string" not-null="true" />
+		<property name="paterno" column="paterno" type="string" not-null="true"  />
+		<property name="materno" column="materno" type="string" not-null="true"  />		
+		<property name="nombres" column="nombres" type="string" not-null="true"  />		
+		<property name="imponibleFondoPension" column="imponibleFondoPension" type="long" not-null="true"  />
+		<property name="cotizacionObligatoria" column="cotizacionObligatoria" type="long" not-null="true"  />
+		<property name="ahorroVoluntario" column="ahorroVoluntario" type="long" not-null="true"  />
+		<property name="seguroCesantia" column="seguroCesantia" type="yes_no" not-null="true" />
+		<property name="imponibleFondoCesantia" column="imponibleFondoCesantia" type="long" not-null="true"  />
+		<property name="cotizacionAfiliado" column="cotizacionAfiliado" type="long" not-null="true"  />
+		<property name="cotizacionEmpleador" column="cotizacionEmpleador" type="long" not-null="true"  />
+		<property name="seguroInvalidez" column="seguroInvalidez" type="long" not-null="true"  />		
+	</class>
+</hibernate-mapping>

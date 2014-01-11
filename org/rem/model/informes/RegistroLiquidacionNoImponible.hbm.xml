@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model.informes">
+	<class name="RegistroLiquidacionNoImponible" table="RegistroLiquidacionNoImponible" lazy="false">
+
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="rutTrabajador" column="rutTrabajador" type="string" not-null="true" />
+		<property name="nombre" column="nombre" type="string" not-null="true"  />
+		<property name="valor" column="valor" type="long" not-null="true"  />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="Impuesto" table="Impuesto">
+		
+		<id name="idImpuesto" column="idImpuesto">
+			<generator class="native" />
+		</id>
+		<property name="casiFijo" column="casiFijo" type="true_false" not-null="true" />
+		<property name="inicio" column="inicio" type="double" not-null="true" />
+		<property name="factor" column="factor" type="double" not-null="true" />
+		<property name="rebaja" column="rebaja" type="double" not-null="true" />
+		<many-to-one name="mes" column="idMes" class="Mes" not-null="true" />
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="Trabajador" table="Trabajador" lazy="false">
+	
+		<id name="idTrabajador" column="idTrabajador">
+			<generator class="native" />
+		</id>
+		<property name="bloqueado" column="bloqueado"	type="true_false" not-null="true" />
+		
+		<component name="datosPersonales" class="Persona">
+			<property name="rut" column="rutTrabajador" type="string" not-null="true" />
+			<property name="nombres" column="nombres" type="string"	not-null="true" />
+			<property name="apellidoPaterno" column="apellidoPaterno" type="string" not-null="true" />
+			<property name="apellidoMaterno" column="apellidoMaterno" type="string" not-null="true" />
+			<property name="sexo" column="sexo" type="string" not-null="true" />
+		</component>
+
+		<component name="direccion" class="Direccion">
+			<property name="calle" column="calle" type="string" />
+			<property name="numero" column="numero" type="string" />
+			<property name="ciudad" column="ciudad" type="string" />
+			<property name="comuna" column="comuna" type="string" />
+			<property name="region" column="region" type="string" />
+			<property name="poblacion" column="poblacion" type="string" />
+			<property name="cerro" column="cerro" type="string" />
+		</component>
+
+		<property name="fechaIngreso" column="fechaIngreso" type="date" />
+		<property name="fechaEgreso" column="fechaEgreso" type="date" />
+
+		<many-to-one name="empresa" column="idEmpresa" class="Empresa" not-null="true" />
+
+		<set name="cuentas" inverse="true" cascade="all">
+			<key column="idTrabajador" />
+			<one-to-many class="TrabajadorCuenta" />
+		</set>
+
+	</class>
+</hibernate-mapping>

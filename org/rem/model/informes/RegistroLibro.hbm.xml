@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model.informes">
+	<class name="RegistroLibro" table="RegistroLibro" lazy="false">
+
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="rutTrabajador" column="rutTrabajador" type="string" not-null="true" />
+		<property name="paterno" column="paterno" type="string" not-null="true"  />
+		<property name="materno" column="materno" type="string" not-null="true"  />		
+		<property name="nombres" column="nombres" type="string" not-null="true"  />		
+		<property name="dias" column="dias" type="double" not-null="true"  />
+		<property name="horas" column="horas" type="long" not-null="true"  />
+		
+		<!-- Campos Especiales Colegio -->
+		<property name="ump" column="ump" type="long" not-null="true" />
+		<property name="bpp80" column="bpp80" type="long" not-null="true" />
+		<property name="bcomp80" column="bcomp80" type="long" not-null="true" />
+		<property name="ley19464" column="ley19464" type="long" not-null="true" />
+		<property name="bonoResponsabilidad" column="bonoResponsabilidad" type="long" not-null="true" />
+		<property name="leySep" column="leySep" type="long" not-null="true" />
+		<property name="jefaturaCurso" column="jefaturaCurso" type="long" not-null="true" />
+		<property name="bonoReconocimiento" column="bonoReconocimiento" type="long" not-null="true" />
+
+		<property name="sueldoBase" column="sueldoBase" type="long" not-null="true"  />
+		<property name="pagoHoras" column="pagoHoras" type="long" not-null="true"  />
+		<property name="otrosImponibles" column="otrosImponibles" type="long" not-null="true"  />
+		<property name="gratificacion" column="gratificacion" type="long" not-null="true"  />
+		<property name="imponible" column="imponible" type="long" not-null="true"  />
+
+		<property name="asignacionFamiliar" column="asignacionFamiliar" type="long" not-null="true"  />
+		<property name="movilizacion" column="movilizacion" type="long" not-null="true"  />
+		<property name="colacion" column="colacion" type="long" not-null="true"  />
+		<property name="otrosNoImponibles" column="otrosNoImponibles" type="long" not-null="true"  />
+		<property name="totalHaberes" column="totalHaberes" type="long" not-null="true"  />
+
+		<property name="institucionPrevision" column="institucionPrevision" type="string" />
+		<property name="prevision" column="prevision" type="long" not-null="true"  />
+		<property name="apv" column="apv" type="long" not-null="true"  />
+		<property name="ahorroVoluntario" column="ahorroVoluntario" type="long" not-null="true"  />
+
+		<property name="institucionSalud" column="institucionSalud" type="string" />
+		<property name="salud" column="salud" type="long" not-null="true"  />
+		<property name="totalPrevision" column="totalPrevision" type="long" not-null="true"  />
+		<property name="seguroCesantia" column="seguroCesantia" type="long" not-null="true"  />
+		<property name="totalAfecto" column="totalAfecto" type="long" not-null="true"  />
+
+		<property name="impuesto" column="impuesto" type="long" not-null="true"  />
+		<property name="diferenciaIsapre" column="diferenciaIsapre" type="long" not-null="true"  />
+		<property name="anticipo" column="anticipo" type="long" not-null="true"  />
+		<property name="otrosDescuentos" column="otrosDescuentos" type="long" not-null="true"  />
+		<property name="totalDescuentos" column="totalDescuentos" type="long" not-null="true"  />
+		<property name="liquido" column="liquido" type="long" not-null="true"  />
+		
+		<property name="valorHoraProfesor" column="valorHoraProfesor" type="long" not-null="false"/>
+		<property name="horasProfesor" column="horasProfesor" type="long" not-null="false"/>
+		
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="TrabajadorImponible" table="TrabajadorImponible" lazy="false">
+
+		<id name="idTrabajadorImponible" column="idTrabajadorImponible">
+			<generator class="native" />
+		</id>
+		<property name="monto" column="monto" type="double"	not-null="true" />
+		
+		<many-to-one name="trabajadorCuenta" column="idTrabajadorCuenta" class="TrabajadorCuenta" not-null="true" />
+		<many-to-one name="imponible" column="idImponible" class="Imponible" not-null="true" />
+
+	</class>
+</hibernate-mapping>

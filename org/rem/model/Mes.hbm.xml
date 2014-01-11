@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="Mes" table="Mes" lazy="false">
+	
+		<id name="idMes" column="idMes">
+			<generator class="native" />
+		</id>
+		<property name="fecha" column="fecha" type="date" not-null="true" unique="true" />
+
+		<property name="sueldoMinimo" column="sueldoMinimo" type="double" not-null="true" />
+		<property name="uf" column="uf" type="double" not-null="true" />
+		<property name="utm" column="utm" type="double" not-null="true" />
+		
+		<property name="previsionAfpTope" column="previsionAfpTope" type="double" not-null="true" />
+		<property name="previsionApvTope" column="previsionApvTope" type="double" not-null="true" />
+		<property name="previsionSeguroInvalidez" column="previsionInvalidez" type="double" not-null="true" />
+
+		<property name="mutualCotizacionBasica"	column="mutualCotizacionBasica" type="double" not-null="true" />
+
+		<property name="saludCotizacionBasica" column="saludCotizacionBasica" type="double" not-null="true" />
+		<property name="saludTope" column="saludTope" type="double" not-null="true" />
+
+		<property name="seguroCesantiaPorcentaje" column="seguroCesantiaPorcentaje" type="double" not-null="true" />
+		<property name="seguroCesantiaTope" column="seguroCesantiaTope" type="double" not-null="true" />
+
+		<property name="gratificacionPorcentaje" column="gratificacionPorcentaje" type="double" not-null="true" />
+		<property name="gratificacionFactorAnual" column="gratificacionFactorAnual" type="double" not-null="true" />
+
+		<set name="impuestos" inverse="true" cascade="all">
+			<key column="idMes" />
+			<one-to-many class="Impuesto" />
+		</set>
+		
+		<set name="asignaciones" inverse="true" cascade="all">
+			<key column="idMes" />
+			<one-to-many class="Asignacion" />
+		</set>
+		
+		<set name="afps" inverse="true" cascade="all">
+			<key column="idMes" />
+			<one-to-many class="Afp" />
+		</set>
+
+	</class>
+</hibernate-mapping>

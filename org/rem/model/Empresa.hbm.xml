@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="Empresa" table="Empresa" lazy="false">
+
+		<id name="idEmpresa" column="idEmpresa">
+			<generator class="native" />
+		</id>
+		<property name="bloqueado" column="bloqueado" type="true_false"	not-null="true" />
+		<property name="rutEmpresa" column="rutEmpresa" type="string" not-null="true" unique="true" />
+		<property name="razonSocial" column="razonSocial" type="string"	not-null="true" />
+		<property name="colegio" column="colegio" type="true_false"	not-null="true" />
+		<property name="actividad" column="actividad" type="string"	not-null="true" />
+		<property name="fono" column="fono" type="string" />
+		<property name="email" column="email" type="string" />
+
+		<component name="direccion" class="Direccion">
+			<property name="calle" column="calle" type="string" />
+			<property name="numero" column="numero" type="string" />
+			<property name="ciudad" column="ciudad" type="string" />
+			<property name="comuna" column="comuna" type="string" />
+			<property name="region" column="region" type="string" />
+			<property name="poblacion" column="poblacion" type="string" />
+			<property name="cerro" column="cerro" type="string" />
+		</component>
+
+		<component name="representante" class="Persona">
+			<property name="rut" column="rutRepresentante" type="string" not-null="true" />
+			<property name="nombres" column="nombresRepresentante" type="string" not-null="true" />
+			<property name="apellidoPaterno" column="apellidoPaternoRepresentante" type="string" not-null="true" />
+			<property name="apellidoMaterno" column="apellidoMaternoRepresentante" type="string" not-null="true" />
+		</component>
+
+		<set name="cuentas" inverse="true" cascade="all">
+			<key column="idEmpresa" />
+			<one-to-many class="EmpresaCuenta" />
+		</set>
+		
+		<set name="trabajadores" inverse="true" cascade="all">
+			<key column="idEmpresa" />
+			<one-to-many class="Trabajador" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

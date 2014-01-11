@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model.informes">
+	<class name="RegistroEmpresa" table="RegistroEmpresa" lazy="false">
+
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="fecha" column="fecha" type="date" not-null="true"  />
+		<property name="fechaTexto" column="fechaTexto" type="string" not-null="true"  />
+		<property name="rutEmpresa" column="rutEmpresa" type="string" not-null="true"  />
+		<property name="razonSocial" column="razonSocial" type="string" not-null="true" />
+		<property name="actividad" column="actividad" type="string" not-null="true" />
+		<property name="calle" column="calle" type="string" not-null="true" />
+		<property name="numero" column="numero" type="string" not-null="true" />
+		<property name="comuna" column="comuna" type="string" not-null="true" />
+		<property name="ciudad" column="ciudad" type="string" not-null="true" />
+		<property name="region" column="region" type="string" not-null="true" />
+		<property name="telefono" column="telefono" type="string" not-null="true" />		
+		<property name="rutRepresentante" column="rutRepresentante" type="string" not-null="true"  />
+		<property name="nombreRepresentante" column="nombreRepresentante" type="string" not-null="true" />
+		<property name="nombreMutual" column="nombreMutual" type="string" />
+		<property name="nombreCaja" column="nombreCaja" type="string" />		
+		<property name="cotizacionAccidenteTrabajo" column="cotizacionAccidenteTrabajo" type="double" not-null="true" />
+	</class>
+</hibernate-mapping>

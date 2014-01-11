@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="TrabajadorCuenta" table="TrabajadorCuenta" lazy="false">
+
+		<id name="idTrabajadorCuenta" column="idTrabajadorCuenta">
+			<generator class="native" />
+		</id>
+		<property name="cerrada" column="cerrada" type="true_false" not-null="true" />
+
+		<property name="trato" column="trato" type="string" not-null="true" />
+		<property name="formaPago" column="formaPago" type="string"	not-null="true" />
+		<property name="tipoContrato" column="tipoContrato"	type="string" not-null="true" />
+		<property name="seguroCesantia" column="seguroCesantia"	type="true_false" not-null="true" />
+
+		<many-to-one name="afp" column="idAfp" class="Afp" />
+		<many-to-one name="afp2" column="idAfp2" class="Afp" />
+		<property name="tipoAhorroVoluntario" column="tipoAhorroVoluntario" type="string" />
+		<property name="valorAhorroVoluntario" column="valorAhorroVoluntario" type="double" />
+
+		<property name="tipoSalud" column="tipoSalud" type="string"	not-null="true" />
+		<many-to-one name="isapre" column="idIsapre" class="Isapre" />
+		<property name="tipoPactoIsapre" column="tipoPactoIsapre" type="string" />
+		<property name="valorPactoIsapre" column="valorPactoIsapre"	type="double" />
+
+		<property name="cargas" column="cargas" type="true_false" not-null="true" />
+		<property name="sueldoPromedio" column="sueldoPromedio"	type="double" />
+		<property name="numeroCargasNormal"	column="numeroCargasNormal" type="long" />
+		<property name="numeroCargasInvalida" column="numeroCargasInvalida" type="long" />
+
+		<many-to-one name="trabajador" column="idTrabajador" class="Trabajador" /> <!-- not-null="true" -->
+		<many-to-one name="empresaCuenta" column="idEmpresaCuenta" class="EmpresaCuenta" /> <!-- not-null="true" -->
+
+		<set name="trabajadorCentroCostos" inverse="true" cascade="all">
+			<key column="idTrabajadorCuenta" />
+			<one-to-many class="TrabajadorCentroCosto" />
+		</set>
+		
+		<set name="trabajadorDescuentos" inverse="true" cascade="all">
+			<key column="idTrabajadorCuenta" />
+			<one-to-many class="TrabajadorDescuento" />
+		</set>
+		
+		<set name="trabajadorImponibles" inverse="true" cascade="all">
+			<key column="idTrabajadorCuenta" />
+			<one-to-many class="TrabajadorImponible" />
+		</set>
+		
+		<set name="trabajadorNoImponibles" inverse="true" cascade="all">
+			<key column="idTrabajadorCuenta" />
+			<one-to-many class="TrabajadorNoImponible" />
+		</set>
+
+	</class>
+</hibernate-mapping>

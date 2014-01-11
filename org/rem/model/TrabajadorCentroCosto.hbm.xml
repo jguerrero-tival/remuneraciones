@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.rem.model">
+	<class name="TrabajadorCentroCosto" table="TrabajadorCentroCosto" lazy="false">
+
+		<id name="idTrabajadorCentroCosto" column="idTrabajadorCentroCosto">
+			<generator class="native" />
+		</id>
+		<property name="monto" column="monto" type="double"	not-null="true" />
+		<property name="horas" column="horas" type="long" not-null="false"/>
+		<property name="diasTrabajados" column="diasTrabajados" type="double"	not-null="true" />
+		<property name="horasExtraordinarias" column="horasExtraordinarias" type="long"	not-null="true" />
+		
+		<many-to-one name="trabajadorCuenta" column="idTrabajadorCuenta" class="TrabajadorCuenta" />
+		<many-to-one name="centroCosto" column="idCentroCosto" class="CentroCosto" />
+
+	</class>
+</hibernate-mapping>

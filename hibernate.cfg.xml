@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">
+			org.hsqldb.jdbcDriver
+		</property>
+		 
+		<property name="connection.url">
+			jdbc:hsqldb:./database/remuneracion
+		</property>
+		 
+		<property name="connection.username">sa</property>
+		<property name="connection.password"></property>
+		
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">1</property> 
+		<!-- SQL dialect -->
+		<property name="dialect">
+			org.hibernate.dialect.HSQLDialect
+		</property>
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">create-update</property>
+
+
+		<mapping resource="org/rem/model/Moneda.hbm.xml" />
+		
+		<mapping resource="org/rem/model/Descuento.hbm.xml" />
+		<mapping resource="org/rem/model/Imponible.hbm.xml" />
+		<mapping resource="org/rem/model/NoImponible.hbm.xml" />
+
+		<mapping resource="org/rem/model/Caja.hbm.xml" />
+		<mapping resource="org/rem/model/Isapre.hbm.xml" />
+		<mapping resource="org/rem/model/Mutual.hbm.xml" />
+		<mapping resource="org/rem/model/Afp.hbm.xml" />
+
+		<mapping resource="org/rem/model/Mes.hbm.xml" />
+		<mapping resource="org/rem/model/Impuesto.hbm.xml" />
+		<mapping resource="org/rem/model/Asignacion.hbm.xml" />
+
+		<mapping resource="org/rem/model/Empresa.hbm.xml" />
+		<mapping resource="org/rem/model/EmpresaCuenta.hbm.xml" />
+		<mapping resource="org/rem/model/CentroCosto.hbm.xml" />
+		
+		<mapping resource="org/rem/model/Trabajador.hbm.xml" />
+		<mapping resource="org/rem/model/TrabajadorCuenta.hbm.xml" />
+		<mapping resource="org/rem/model/TrabajadorCentroCosto.hbm.xml" />
+		<mapping resource="org/rem/model/TrabajadorDescuento.hbm.xml" />
+		<mapping resource="org/rem/model/TrabajadorImponible.hbm.xml" />
+		<mapping resource="org/rem/model/TrabajadorNoImponible.hbm.xml" />
+		
+		<mapping resource="org/rem/model/informes/RegistroEmpresa.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLibro.hbm.xml" />		
+		<mapping resource="org/rem/model/informes/RegistroLiquidacion.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionImponible.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionNoImponible.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionDescuentoLegal.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionDescuentoVario.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroIsapre.hbm.xml" />		
+		<mapping resource="org/rem/model/informes/RegistroAfp.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroMutual.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroCaja.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroInp.hbm.xml" />		
+		
+		<mapping resource="org/rem/model/informes/RegistroLibroCC.hbm.xml" />		
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionImponibleCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionNoImponibleCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionDescuentoLegalCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroLiquidacionDescuentoVarioCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroIsapreCC.hbm.xml" />		
+		<mapping resource="org/rem/model/informes/RegistroAfpCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroMutualCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroCajaCC.hbm.xml" />
+		<mapping resource="org/rem/model/informes/RegistroInpCC.hbm.xml" />		
+<!-- 
+		<mapping resource="org/rem/informes/model/LibroRemuneracionHeader.hbm.xml" />
+		<mapping resource="org/rem/informes/model/LibroRemuneracion.hbm.xml" />
+		
+		<mapping resource="org/rem/informes/model/LiquidacionHeader.hbm.xml" />
+		<mapping resource="org/rem/informes/model/Liquidacion.hbm.xml" />
+		<mapping resource="org/rem/informes/model/LiquidacionImponible.hbm.xml" />
+		<mapping resource="org/rem/informes/model/LiquidacionNoImponible.hbm.xml" />
+		<mapping resource="org/rem/informes/model/LiquidacionDescuentoLegal.hbm.xml" />
+		<mapping resource="org/rem/informes/model/LiquidacionDescuentoVario.hbm.xml" />
+ -->		
+
+	</session-factory>
+
+</hibernate-configuration>
